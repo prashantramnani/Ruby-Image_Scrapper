@@ -6,15 +6,13 @@ require 'fileutils'
 
 agent = Mechanize.new {|agent|
 	agent.user_agent_alias = "Linux Firefox"
-}   #agent is the entity which interacts with the website
+}   
 
 
-agent.follow_meta_refresh = true 
-agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
 agent.pluggable_parser.default = Mechanize::Download
 agent.set_proxy '172.16.2.30', 8080
 
-page = agent.get('https://images.google.com/')  #creates the connection between mechanize and web page
+page = agent.get('https://images.google.com/')  
 
 google_form = page.form('f')
 
